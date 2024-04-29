@@ -217,14 +217,14 @@ class InternalDataSigma(Dataset):
                 os.path.join(
                     self.root,
                     'caption_features_new',
-                    item['path'].rsplit('/', 1)[-1].replace('.png', '.npz')
+                    item['path'].rsplit('/', 1)[-1].replace('.webp', '.npz')
                 ) for item in meta_data_clean
             ])
             self.gpt4v_txt_feat_samples.extend([
                 os.path.join(
                     self.root,
                     'sharegpt4v_caption_features_new',
-                    item['path'].rsplit('/', 1)[-1].replace('.png', '.npz')
+                    item['path'].rsplit('/', 1)[-1].replace('.webp', '.npz')
                 ) for item in meta_data_clean
             ])
             self.vae_feat_samples.extend(
@@ -232,7 +232,7 @@ class InternalDataSigma(Dataset):
                 os.path.join(
                     self.root,
                     f'img_sdxl_vae_features_{resolution}resolution_new',
-                    item['path'].rsplit('/', 1)[-1].replace('.png', '.npy')
+                    item['path'].rsplit('/', 1)[-1].replace('.webp', '.npy')
                 ) for item in meta_data_clean
             ])
 
