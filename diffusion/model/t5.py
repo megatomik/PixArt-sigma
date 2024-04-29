@@ -15,7 +15,7 @@ class T5Embedder:
     available_models = ['t5-v1_1-xxl']
     bad_punct_regex = re.compile(r'['+'#®•©™&@·º½¾¿¡§~'+'\)'+'\('+'\]'+'\['+'\}'+'\{'+'\|'+'\\'+'\/'+'\*' + r']{1,}')  # noqa
 
-    def __init__(self, device, dir_or_name='t5-v1_1-xxl', *, local_cache=False, cache_dir=None, hf_token=None, use_text_preprocessing=True,
+    def __init__(self, device, dir_or_name='t5-v1_1-xxl', *, local_cache=False, cache_dir=None, hf_token=None, use_text_preprocessing=False,
                  t5_model_kwargs=None, torch_dtype=None, use_offload_folder=None, model_max_length=120):
         self.device = torch.device(device)
         self.torch_dtype = torch_dtype or torch.bfloat16
@@ -117,7 +117,7 @@ class T5Embedder:
             text = self.clean_caption(text)
             return text
         else:
-            return text.lower().strip()
+            return text.strip()
 
     @staticmethod
     def basic_clean(text):
